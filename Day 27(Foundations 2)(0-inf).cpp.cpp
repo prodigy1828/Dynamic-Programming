@@ -15,9 +15,9 @@ int rec(int i,int x){
     //cache check
     if(dp[i][x]!=-1) return dp[i][x];
     //transition
-    int ans = rec(i+1,x);
-    if(w[i]<=x){
-        ans = max(ans,rec(i+1,x-w[i])+v[i]);
+    int ans = 0 ;
+    for(int num_of_times=0;num_of_times<=x/w[i];num_of_times++){
+        ans = max(ans,rec(i+1,x - num_of_times*w[i])+num_of_times*v[i])
     }
     //save and return 
     return dp[i][x]=ans;
