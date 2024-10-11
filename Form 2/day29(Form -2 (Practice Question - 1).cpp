@@ -25,6 +25,7 @@ int rec(int i ,int x){
     int min_seen = arr[i];
     for(int j=i-1;j>=-1;j--){
         ans = min(ans,rec(j,x-1)+min_seen); // Keep a running minimum that changes as the loop runs backwards 
+        // note : If we are asked to find the min(sigma max(subarray)) then the above line will ans = min(ans,rec(j,x-1)+max_seen);max_seen=max(max_seen,arr[j]);
         min_seen=min(min_seen,arr[j]);
     }
     //save and return 
