@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define int long long
+const int INF = 1E9;
+
+void solve(){
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    //int dp[n];
+    int last = -1e9;
+    int ans = -1e9;//global answer
+    for(int i=0;i<n;i++){
+        if(i==0){
+            last = arr[i];
+        }else{
+            last = max(last+arr[i],arr[i]);
+        }
+        ans = max(ans,last);
+    }
+    cout<<ans<<endl;
+}
+
+signed main(){
+    ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+    //int tc;cin>>tc;while(tc--)
+    solve();
+}
+
+
+
+
+
